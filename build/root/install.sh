@@ -48,7 +48,7 @@ fi
 ####
 
 # define aur packages
-aur_packages="intellij-idea-community-edition-jre"
+aur_packages="intellij-idea-ultimate-edition"
 
 # call aur install script (arch user repo)
 source aur.sh
@@ -58,10 +58,11 @@ source aur.sh
 
 # overwrite novnc 16x16 icon with application specific 16x16 icon (used by bookmarks and favorites)
 cp /home/nobody/novnc-16x16.png /usr/share/webapps/novnc/app/images/icons/
+ln -s /opt/intellij-idea-ultimate-edition/bin/idea.sh /usr/bin/idea
 
 cat <<'EOF' > /tmp/startcmd_heredoc
 # run intellij
-/usr/bin/idea-ce
+/usr/bin/idea
 EOF
 
 # replace startcmd placeholder string with contents of file (here doc)
@@ -77,7 +78,7 @@ rm /tmp/startcmd_heredoc
 cat <<'EOF' > /tmp/menu_heredoc
     <item label="IntelliJ">
     <action name="Execute">
-      <command>/usr/bin/idea-ce</command>
+      <command>/usr/bin/idea</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
@@ -96,7 +97,7 @@ rm /tmp/menu_heredoc
 ####
 
 # define comma separated list of paths
-install_paths="/tmp,/usr/share/themes,/home/nobody,/usr/share/webapps/novnc,/usr/share/jetbrains-idea-ce,/usr/share/applications,/usr/share/licenses,/etc/xdg,/usr/share/java/gradle"
+install_paths="/tmp,/usr/share/themes,/home/nobody,/usr/share/webapps/novnc,/opt/intellij-idea-ultimate-edition,/usr/share/applications,/usr/share/licenses,/etc/xdg,/usr/share/java/gradle"
 
 # split comma separated string into list for install paths
 IFS=',' read -ra install_paths_list <<< "${install_paths}"
