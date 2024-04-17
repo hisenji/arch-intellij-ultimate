@@ -37,7 +37,7 @@ mv -n /tmp/scripts-master/shell/arch/docker/*.sh /usr/local/bin/ || true
 ####
 
 # define pacman packages
-pacman_packages="git tk kotlin groovy gradle"
+pacman_packages="git tk kotlin groovy gradle extra/ttf-jetbrains-mono"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
