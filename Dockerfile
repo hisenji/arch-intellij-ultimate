@@ -15,7 +15,7 @@ ARG TARGETARCH
 ADD build/root/*.sh /root/
 
 # add pre-configured config files for deluge
-ADD config/nobody/ /home/nobody/
+ADD config/nobody/* /home/nobody/
 
 # install app
 #############
